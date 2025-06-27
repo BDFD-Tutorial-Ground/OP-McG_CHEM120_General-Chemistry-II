@@ -1,0 +1,680 @@
+@font-face {
+font-family: "FontAwesome";
+font-weight: normal;
+font-style : normal;
+       src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0");
+       src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"),
+             url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"),
+             url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"),
+             url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"),
+             url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+}
+@font-face {
+    font-family: "Goudy Initialen";
+    src: url("../fonts/GoudyInitialen.ttf");
+}
+html {
+    background: rgb(200, 200, 200);
+
+}
+
+body {
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+    color: #3c3c3c;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 2em 2em 4em;
+    counter-reset: figures tables schemes;
+
+}
+
+dd {
+    font-style: italic;
+}
+
+/* For smaller screens*/
+ @media screen and (max-width: 650px) {
+    body {
+        max-width: 450px;
+        margin: 0 auto;
+        padding: 1em 1em 2em;
+    }
+}
+/* For printing */
+@media print {
+
+    html {
+        height: auto;
+        background: #FFFFFF
+    }
+     body {
+        color: #000;
+        background: #fff;
+         font-family: 'Helvetica Neue', Arial, sans-serif;
+         line-height:1.5;
+         height: auto;
+    }
+    h1, h2, h3, h4, h5, h6 {
+    page-break-after:avoid;
+    page-break-inside:avoid
+    }
+    h1 {
+        page-break-before: always !important;
+    }
+    img {
+    page-break-inside:avoid;
+    page-break-after:avoid;
+        max-width: 100% !important;
+    }
+    figure {
+        page-break-inside: avoid;
+    }
+    blockquote, table, pre {
+    page-break-inside:avoid
+    }
+
+    ul, ol, dl {
+    page-break-before:avoid
+    }
+
+    .pagebreak {
+        page-break-inside: avoid;;
+    }
+    .break {
+        page-break-before: always;
+    }
+    .noprint {
+        display: none !important;
+    }
+    @page {
+        margin: 1cm 2cm 1cm 2cm;
+    }
+
+    .notice {
+        page-break-inside: avoid;
+    }
+    .nobreak {
+    page-break-inside: avoid;
+    }
+    .paget, .double img, .split img{
+        width: 3.5in;
+        margin-left: auto;
+    }
+    .qa, video, button {
+        display: none !important;
+    }
+    .split img{
+        width: 2in;
+        margin-left: auto;
+    }
+
+  }
+@media print and (color) {
+    * {
+        -webkit-print-color-adjust: exact;
+
+    }
+}
+/* end printing*/
+video {
+    max-width: 640px;
+}
+/* For tables */
+table {
+    border-collapse: collapse;
+}
+table.datasheet {
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin: 20px auto auto;
+    text-align:center;
+}
+
+table.datasheet tr:nth-child(odd) {
+    background-color: #dddde7;
+}
+
+table.datasheet th {
+    
+    background-color:#cccccc;
+    color:black;
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+ table.datasheet  td {
+     padding: 6px;
+     border: 1px solid rgb(60, 60, 60);
+     
+ }
+
+ .labtable {
+     border-bottom: 1px solid black;
+     margin-left: auto;
+     margin-right: auto;
+     text-align: left;
+ }
+
+ .labtable th {
+     background-color: #cccccc;
+ }
+
+ .labtable th, td {
+     padding-right: 15px;
+ }
+
+.scroll {
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+.padbottom {
+    padding-bottom: 1.5em;
+}
+.datainfo {
+    border-bottom: 1pt solid black;
+    min-width: 300px;
+}
+
+.blackedout {
+    background-color: rgb(20, 20, 20);
+}
+.fixedheight {
+    height:22px;
+}
+.fixedheight110 {
+    height:100px;
+}
+.fixedwidth250 {
+    width: 250px;
+}
+.fixedwidth400 {
+    width: 400px;
+}
+/* End for tables */
+
+h1 {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    padding-bottom: 24px;
+    padding-top: 24px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #222;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h2 {
+    margin-top: 1.3em;
+}
+
+a {
+    color: #0083e8;
+}
+
+
+
+em {
+    color:mediumblue;
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+/* Images and Figure counting*/
+img {
+    background: transparent;
+    border: 6px solid transparent;
+    border-radius: 4px;
+    display: block;
+    margin: 1.3em auto;
+    max-width: 95%;
+}
+.figure {
+	counter-increment: figures;
+}
+
+.scheme {
+    counter-increment: schemes;
+}
+.double img{
+    max-width: 45%;
+}
+
+.split img{
+    max-width: 45%;
+    display: inline;
+}
+.figure figcaption:before {
+	content: 'Figure ' counter(figures) ' - ';
+    font-weight: bold;
+}
+
+.scheme figcaption:before {
+    content: 'Scheme 'counter(schemes) ' - ';
+    font-weight: bold;
+}
+
+.labtable caption {
+    counter-increment: tables;
+}
+/*
+.labtable caption:before {
+    content: 'Table ' counter(tables) ' - ';
+    font-weight: bold;
+}
+
+.datasheet caption {
+    counter-increment: tables;
+}
+
+.datasheet caption:before {
+    content: 'Table ' counter(tables) ' - ';
+    font-weight: bold;
+}
+*/
+/* end images and figure count*/
+
+/* safety boxes */
+
+/* notices adapted from http://codepen.io/walesmd/pen/zysbv */
+
+ul#safety{
+    list-style-position: outside;
+    text-indent: 1em;
+}
+
+.notice {
+     position: relative;
+     margin: 1em;
+     background: #F9F9F9;
+     padding: 1em 1em 1em 2em;
+     border-left: 4px solid #DDD;
+     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+ }
+ 
+.notice:before {
+     position: absolute;
+     top: 50%;
+     margin-top: -17px;
+     left: -17px;
+     background-color: #DDD;
+     color: #FFF;
+     width: 30px;
+     height: 30px;
+     border-radius: 100%;
+     text-align: center;
+     line-height: 30px;
+     font-weight: bold;
+    font-family: FontAwesome, monospace;
+     text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+ }
+ 
+.info {
+     border-color: #8bc34a;
+ }
+ 
+.info:before {
+     content: "\f129";
+     background-color: #8bc34a;
+ }
+
+.glassware {
+
+ border-color: #8bc34a;
+ }
+
+.glassware:before {
+     content: "\f0c3";
+     background-color: #8bc34a;
+ }
+ .check {
+     border-color: #03a9f4;
+ }
+ 
+.check:before {
+     content: "\f00c";
+     background-color: #03a9f4;
+ }
+
+.check ul li {
+    list-style-type: circle;
+}
+
+.warning {
+     border-color: #FFa500;
+ }
+ 
+ .warning:before {
+     content: "\f12a";
+     background-color: #FFa500;
+ }
+ 
+.save {
+     border-color: gold;
+ }
+ 
+.save:before {
+     content: "\f0c7";
+     background-color: gold;
+ }
+
+.critical {
+     border-color: #d32f2f;
+ }
+ 
+.critical:before {
+     content: "\f0fa";
+     background-color: #d32f2f;
+ }
+ 
+ .question {
+     border-color: #9c27b0;
+ }
+ 
+.question:before {
+     content: "\f128";
+     background-color: #9c27b0;
+ }
+ /* end notices */
+
+#copyright {
+    font-weight: bold;
+    text-align: center;
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+img.inlineimage {
+    border: 0px;
+    border-radius: 0px;
+    margin: 0em auto;
+    height: 12px;
+    display: inline;
+}
+
+.centered {
+    text-align: center;
+}
+.crossed {
+    text-decoration: line-through;
+}
+
+/* For extra questions */
+
+
+
+.a span {
+    font-weight:bold;
+}
+
+
+
+.hilite span {
+    color: dodgerblue;
+}
+
+.hilite {
+    font-weight: bold;
+    color: dodgerblue;
+}
+
+.answer {
+    background: lightgrey;
+}
+
+#graph{
+    height: 550px;
+}
+
+/* For extra questions */
+
+.button {
+    background-color: dodgerblue; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 6px;
+    height: 31px;
+    width: 280px;
+}
+
+.nowrap {
+    white-space:nowrap;
+}
+
+ol.sublist {
+    list-style-type: lower-alpha;
+}
+
+
+/* Specific for titration lab*/
+
+.acid {
+    margin: auto;
+}
+
+.acid th {
+    text-align: left;
+}
+
+.acid td {
+    padding-right: 2em;
+}
+
+.titration {
+    min-width: 85px;
+}
+
+@media screen and (max-width: 650px) {
+    .titration {
+        min-width: 10px;
+    }
+    .datainfo {
+        min-width: 200px;
+    }
+
+}
+@media screen and (min-width: 450px) {
+    .paget {
+        max-width: 50%;
+        margin-left: auto;
+    }
+    .smallfig-right {
+        float: right;
+        max-width:50%;
+
+    }
+}
+/* Graphs */
+
+
+
+.drop {
+    float: left;
+    width: 0.85em;
+    font-size: 800%;
+    font-family: "Goudy Initialen", "Goudy Old Style", serif;
+    line-height: 80%;
+}
+
+
+/* Colours */
+.zinc {
+    color: rgb(85, 192, 95);
+}
+.lithium {
+    color: rgb(233, 1, 44)
+}
+.strontium {
+    color: rgb(242, 85, 36)
+}
+.sodium {
+    color: rgb(216, 185, 72)
+}
+.copper {
+    color: rgb(73, 185, 131)
+}
+.potassium {
+    color: rgb(168, 141, 192)
+}
+
+.red {
+    color: rgb(255, 0, 0);
+}
+
+.grey {
+    color: rgb(150, 150, 150);
+}
+
+.blue {
+    color:rgb(0, 0, 255);
+}
+
+.green {
+    color:rgb(0, 160, 0);
+}
+.whitebg {
+    background: #fff;
+}
+
+/* Sherlock Holmes Mystery */
+.mysterytable {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.mysterytable td {
+    border: 1px solid black;
+}
+.mysterytable caption{
+    width: 250px;
+}
+
+.sherlock {
+    font-family: "Goudy Old Style", serif;
+}
+.sherlock h1 {
+    border-bottom: 0px;
+    border-top: 0px;
+    padding-bottom: 3px;
+    padding-top: 24px;
+    text-align: center;
+}
+
+.sherlock h2 {
+    text-align: center;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    font-size: large;
+}
+
+.widebody {
+    max-width: 800px;
+}
+
+body > header {
+    margin: 0px;
+    padding: 0px;
+    min-width: 100%;
+    max-width: 100%;
+    background: #ffffff;
+    height: auto;
+}
+
+
+.header1 {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+/* Video */
+
+video::cue {
+    align: middle;
+    line: 90%;
+}
+
+video::-webkit-media-text-track-display {
+    font-size: 50%;
+}
+
+video {
+    display: block;
+    margin: 0 auto;
+}
+/* Schedule */
+
+.schedule {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.schedule td,
+th {
+    border: 1px solid #404040;
+    text-align: center;
+    padding: 8px;
+}
+
+.schedule a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.schedule em {
+    color: black;
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Specific for titration lab*/
+
+@media screen and (max-width: 650px) {
+    .titration {
+        min-width: 10px;
+    }
+    .datainfo {
+        min-width: 200px;
+    }
+}
+
+/* Kinetic lab*/
+
+
+.canvasquestion {
+    height: 200px;
+    width: 200px;
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}
